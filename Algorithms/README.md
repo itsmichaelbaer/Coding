@@ -1,1 +1,2 @@
-Algorithms
+Algorithms:
+-BinarySearch/BinarySearch.java
