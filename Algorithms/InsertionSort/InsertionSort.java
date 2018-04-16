@@ -1,8 +1,11 @@
+import java.util.Arrays;
+
 public class InsertionSort
 {
-//iterative method of sorting integer values in O(n^2), can be optimized as BinaryInsertionSort
+//iterative and recursive method of sorting integer values in O(n^2), can be optimized as BinaryInsertionSort
 
-  public static int[] sort(int[] arr)
+  //iterative
+  public static int[] sortIterative(int[] arr)
   {
     for(int i = 1; i < arr.length; i++)
     {
@@ -16,5 +19,26 @@ public class InsertionSort
       arr[j+1] = temp;//insert temp at correct pos
     }
     return arr;
+  }
+
+
+  //recursive
+  public static void sortRecursive(int[] arr, int n)
+  {
+    //base case
+    if(n <= 1)
+      return;
+
+    sortRecursive(arr, n-1);//recursively sort
+
+    int temp = arr[n-1];//store current position
+    int j = n - 2;//get index before
+
+    while(j >= 0 && arr[j] > temp)
+    {
+      arr[j+1]=arr[j];//shift numbers forward
+      j--;
+    }
+    arr[j+1] = temp;//insert temp at correct position
   }
 }
