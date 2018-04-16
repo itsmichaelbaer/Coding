@@ -32,19 +32,19 @@ public static void sortRecursive(int[] arr, int n)
   if(n == 1)
     return;
 
-  boolean sorted=true;
+  boolean sorted = true;
 
-  for(int i=0; i < n-1; i++)
+  for(int i = 0; i < n-1; i++)
   {
     if(arr[i] > arr[i+1])
     {
       int temp = arr[i];
       arr[i] = arr[i+1];
       arr[i+1] = temp;
-      sorted=false;
+      sorted = false;
     }
   }
   if(sorted) return;
-  sortRecursive(arr,n-1);
+  sortRecursive(arr, n-1);
 }
 }
