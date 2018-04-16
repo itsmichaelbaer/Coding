@@ -1,6 +1,6 @@
 public class SelectionSort
 {
-  //iterative soring algorithm for integers in O(n^2)
+  //iterative sorting algorithm for integers in O(n^2)
   
   public static int[] sort(int[] arr)
   {
