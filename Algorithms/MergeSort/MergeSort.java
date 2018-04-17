@@ -54,12 +54,30 @@ public class MergeSort
   //recursive
   public static void sortRecursive(int[] arr, int l, int r)
   {
-    if(r>l)
+    if(l < r)
     {
-      int m = (l+r)/2;//find middle
+      int m = l + (r - 1) / 2;//find middle, prevent overflow
       sortRecursive(arr, l, m);//sort half
-      sort(arr, m+1, r);//sort other half
+      sortRecursive(arr, m+1, r);//sort other half
       MergeSort.merge(arr, l, m, r);//merge halves
+    }
+  }
+
+  public static void sortIterative(int[] arr, int n)
+  {
+    int currentSize;//size of subarray
+    int left;//starting index of left subarray to be merged
+
+    //merge subarrays of size 1 to make sorted array of size 2
+    //then merge subarrays of size 2 to make sorted array of size 4 etc.
+    for(currentSize = 1; currentSize < n - 1; currentSize *= 2)
+    {
+      for(left = 0; left < n - 1; left += 2 * currentSize)
+      {
+        int mid = left + currentSize - 1;
+        int right = min(left + 2 * currentSize - 1, n - 1);
+        MergeSort.merge(arr, left, mid, right);
+      }
     }
   }
 }
